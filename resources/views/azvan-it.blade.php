@@ -1,0 +1,246 @@
+
+@extends('layouts.app')
+
+@section('title', 'Hasil Bulldozer GSI')
+
+@section('content')
+
+<link type="text/css" rel="stylesheet" href="./my-css/my-sign-pad.css">
+
+<link type="text/css" rel="stylesheet" href="./my-css/app.css">
+
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+<title>Portofolio</title>
+
+@php
+use Carbon\Carbon;
+$currentDate = Carbon::now('Asia/Singapore')->format('YYYY-MM-DD');
+$currentTime = Carbon::now('Asia/Singapore')->format('H:i');   // Format it as Y-m-d for HTML date input compatibility
+@endphp
+
+<section class="min-h-screen bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-5xl lg:py-16 !pb-40 !pt-28">
+
+        <img class="azvan h-auto max-w-full rounded-lg" src="{{ asset('storage/images/HASIL.svg') }}" alt="image description">
+        <div class="p-5 text-center">
+            {{-- <h3 class="mb-2 text-2xl font-extrabold tracking-tight leading-none md:text-2xl xl:text-2xl dark:text-white">
+                Unit <a class="font-extrabold text-blue-500 dark:text-blue-400 hover:underline">Motor Grader</a>
+            </h3> --}}
+        </div>
+
+        <!-- Start coding here -->
+
+
+    <div style="background-image: url('storage/hero/hero-bg.png'); background-size: cover; background-position: bottom; background-repeat: no-repeat" class="2xl:h-[712px] xl:h-[600px] lg:h-[550px] md:h-[500px] pb-20">
+        <div class="container mx-auto px-10 2xl:px-0">
+            <nav class="border-gray-200 px-5 sm:px-4 py-3 md:py-9 rounded dark:bg-gray-800">
+                <div class="container max-w-7xl xl:w-9/12 lg:w-9/12 flex flex-wrap justify-between items-center mx-auto">
+                    <a href="#" class="flex items-center">
+                        <span class="text-white self-center text-xl font-semibold whitespace-nowrap dark:text-white">IAMESLE</span>
+                    </a>
+                    <div class="flex md:order-2">
+                        <button type="button" class="font-semibold hidden md:block text-yellow-300 hover:text-white border border-yellow-300 hover:bg-yellow-300 focus:ring-4 focus:ring-yellow-300 rounded-full text-sm px-9 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">Contact</button>
+                        <button data-collapse-toggle="mobile-menu-4" type="button" class="inline-flex items-center p-2 text-sm text-gray-300 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-4" aria-expanded="false">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                            <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
+                    <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-4">
+                        <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+                            <li>
+                                <a href="#" class="font-medium text-lg block py-2 pr-4 pl-3 text-gray-300 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Profile</a>
+                            </li>
+                            <li>
+                                <a href="#" class="font-medium text-lg block py-2 pr-4 pl-3 text-gray-300 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Skills</a>
+                            </li>
+                            <li>
+                                <a href="#" class="font-medium text-lg block py-2 pr-4 pl-3 text-gray-300 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Project</a>
+                            </li>
+                            <li>
+                                <a href="#" class="font-medium text-lg block py-2 pr-4 pl-3 text-gray-300 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-gray-400 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="text-center mt-16 xl:mt-20 lg:mt-10 md:mt-6">
+                <h1 class="text-3xl text-white font-semibold font-mono 2xl:w-6/12 xl:w-8/12 lg:w-10/12 mx-auto leading-relaxed">I'am a student, back-end developer, and fullstack web developer.</h1>
+                <p class="text-white text-opacity-60 text-lg 2xl:w-3/12 xl:w-4/12 lg:w-6/12 mx-auto mt-6 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, suscipit.</p>
+                <button type="button" class="text-black mt-14 bg-yellow-300 hover:bg-yellow-400 focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-md px-9 py-4 text-center mr-2 mb-2 dark:focus:ring-yellow-900">Scroll down</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-28" id="profile">
+        <div class="container max-w-7xl px-10 2xl:px-0">
+
+            <h2 class="text-2xl font-semibold font-mono text-center">Profile</h2>
+            <p class="text-lg mt-2 text-gray-600 text-center">Lorem ipsum dolor sit amet.</p>
+
+            <div class="flex lg:items-center md:items-start flex-wrap xl:w-9/12 mx-auto mt-10">
+                <div class="md:w-5/12 w-full px-10 mb-10 md:mb-0">
+                    <img src="storage/hero/ppbeluga.png" class="w-full" />
+                </div>
+                <div class="md:w-7/12 w-full px-10">
+                    <p class="text-lg leading-relaxed font-sans">Aliquam blandit leo lorem, nec vehicula mi accumsan posuere. Duis condimentum ornare ante a posuere. Aliquam sem magna, sodales quis congue vel, congue nec nisi. Aenean nec lorem et dolor aliquet ullamcorper eu at sapien. Sed pretium mauris dui. Phasellus mollis accumsan tempus. Proin laoreet hendrerit ligula, id lacinia eros. Aenean consequat, felis eu malesuada lobortis, augue nisl faucibus ligula, id viverra mi erat at nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas ac aliquet eros.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-28 bg-gray-100" id="skills">
+        <div class="container max-w-7xl mx-auto px-10 2xl:px-0">
+
+            <h2 class="text-2xl font-semibold font-mono text-center">Skills</h2>
+            <p class="text-lg mt-2 text-gray-600 text-center">Lorem ipsum dolor sit amet.</p>
+
+            <div class="flex -mx-4 xl:mx-40 lg:mx-40 mt-20 flex-wrap">
+
+                <div class="md:w-4/12 w-full px-4 pb-8">
+                    <div style="box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);" class="bg-white rounded-lg p-6 flex items-center">
+                        <img src="storage/hero/ppbeluga.png" class="mr-6 h-16 rounded-full" />
+                        <div>
+                            <h4 class="text-lg font-semibold">JavaScript</h4>
+                            <p class="text-sm text-gray-400 font-semibold mt-1">Beginner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-4/12 w-full px-4 pb-8">
+                    <div style="box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);" class="bg-white rounded-lg p-6 flex items-center">
+                        <img src="storage/hero/ppbeluga.png" class="mr-6 h-16 rounded-full" />
+                        <div>
+                            <h4 class="text-lg font-semibold">JavaScript</h4>
+                            <p class="text-sm text-gray-400 font-semibold mt-1">Beginner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-4/12 w-full px-4 pb-8">
+                    <div style="box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);" class="bg-white rounded-lg p-6 flex items-center">
+                        <img src="storage/hero/ppbeluga.png" class="mr-6 h-16 rounded-full" />
+                        <div>
+                            <h4 class="text-lg font-semibold">JavaScript</h4>
+                            <p class="text-sm text-gray-400 font-semibold mt-1">Beginner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-4/12 w-full px-4 pb-8">
+                    <div style="box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);" class="bg-white rounded-lg p-6 flex items-center">
+                        <img src="storage/hero/ppbeluga.png" class="mr-6 h-16 rounded-full" />
+                        <div>
+                            <h4 class="text-lg font-semibold">JavaScript</h4>
+                            <p class="text-sm text-gray-400 font-semibold mt-1">Beginner</p>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-28" id="projects">
+        <div class="container max-w-4xl mx-auto px-10 2xl:px-0">
+
+            <h2 class="text-2xl font-semibold font-mono text-center">Projects</h2>
+            <p class="text-lg mt-2 text-gray-600 text-center">Lorem ipsum dolor sit amet.</p>
+
+            <div class="flex -mx-4 mt-20 flex-wrap">
+
+                <div class="md:w-6/12 w-full px-4 pb-8">
+                    <article class="text-center">
+                        <img src="storage/hero/hasten.png" class="w-full rounded-lg" />
+                        <h3 class="text-xl font-semibold mt-4 mb-1">Hasten</h3>
+                        <p class="text-lg text-gray-400">Lorem ipsum dolor sit amet consectetur.</p>
+                    </article>
+                </div>
+                <div class="md:w-6/12 w-full px-4 pb-8">
+                    <article class="text-center">
+                        <img src="storage/hero/hasten.png" class="w-full rounded-lg" />
+                        <h3 class="text-xl font-semibold mt-4 mb-1">Hasten</h3>
+                        <p class="text-lg text-gray-400">Lorem ipsum dolor sit amet consectetur.</p>
+                    </article>
+                </div>
+                <div class="md:w-6/12 w-full px-4 pb-8">
+                    <article class="text-center">
+                        <img src="storage/hero/hasten.png" class="w-full rounded-lg" />
+                        <h3 class="text-xl font-semibold mt-4 mb-1">Hasten</h3>
+                        <p class="text-lg text-gray-400">Lorem ipsum dolor sit amet consectetur.</p>
+                    </article>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="container max-w-5xl mx-auto px-10 2xl:px-0" id="contact">
+        <div class="bg-gray-100 flex rounded-lg flex-wrap">
+            <div class="md:w-6/12 w-full md:border-r border-b border-primarygray-200">
+                <div class="lg:py-16 lg:px-20 md:p-14 p-10">
+
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-semibold font-mono text-center">Contact</h2>
+                        <p class="text-lg mt-2 text-gray-600 text-center">Lorem ipsum dolor sit amet.</p>
+                    </div>
+
+                    <div class="flex items-start my-6">
+                        <i class='bx bxl-gmail bx-md'></i>
+                        <div class="ml-4">
+                            <div class="text-sm font-semibold mb-1">Email</div>
+                            <div class="text-lg font-semibold">lana.septiana2@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start my-6">
+                        <i class='bx bxl-instagram bx-md'></i>
+                        <div class="ml-4">
+                            <div class="text-sm font-semibold mb-1">Instagram</div>
+                            <div class="text-lg font-semibold">@iamelse_</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start my-6">
+                        <i class='bx bxl-linkedin bx-md' ></i>
+                        <div class="ml-4">
+                            <div class="text-sm font-semibold mb-1">Linked In</div>
+                            <div class="text-lg font-semibold">@iamelse</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="md:w-6/12 w-full">
+                <form class="lg:py-16 lg:px-20 md:p-14 p-10">
+                    <div class="flex flex-wrap -mx-4">
+                        <div class="lg:w-6/12 w-full px-4">
+                            <div class="mb-6">
+                                <label htmlFor={name} class="block mb-1 text-sm font-semibold">Name</label>
+                                <input type="text" name={name} id={name} class="bg-transparent border border-gray-400 w-full" />
+                            </div>
+                        </div>
+                        <div class="lg:w-6/12 w-full px-4">
+                            <div class="mb-6">
+                                <label htmlFor={name} class="block mb-1 text-sm font-semibold">Email</label>
+                                <input type="text" name={name} id={name} class="bg-transparent border border-gray-400 w-full" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label htmlFor={name} class="block mb-1 text-sm font-semibold">Subject</label>
+                        <input type="text" name={name} id={name} class="bg-transparent border border-gray-400 w-full" />
+                    </div>
+
+                    <label htmlFor={name} class="block mb-1 text-sm font-semibold">Message</label>
+                    <textarea name={name} id={name} rows="4" class="bg-transparent border border-gray-400 w-full" ></textarea>
+
+                    <div class="text-right">
+                        <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-8 py-2 text-center my-3 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-800 dark:border-gray-700">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    </div>
+    </section>
+@endsection
