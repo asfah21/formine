@@ -197,13 +197,24 @@
 
                         <div class="sm:col-span-2">
                             <label for="nama_driver"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Lengkap</label>
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Lengkap (<span id="counter" class="end-2 top-1/2 -translate-y-1/2 text-xs">20</span>)</label>
                             <div class="relative flex items-center">
                                 <input type="text" name="nama_driver" id="nama_driver"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="Tuliskan nama anda" required />
+                                    placeholder="Tuliskan nama anda" maxlength="20" required />
                             </div>
                         </div>
+                        <script>
+                            const namaDriverInput = document.getElementById('nama_driver');
+                            const counterSpan = document.getElementById('counter');
+                            const maxChars = 20;
+
+                            namaDriverInput.addEventListener('input', function() {
+                                const currentLength = this.value.length;
+                                const remainingChars = maxChars - currentLength;
+                                counterSpan.textContent = remainingChars;
+                            });
+                        </script>
 
                         <div>
                             <label for="departemen"
@@ -702,10 +713,25 @@
                             search: '',
                             selectedValue: '',
                             selectedText: '',
-                            units: Array.from({ length: 120 }, (_, i) => `EX.${String(i + 201).padStart(3, '0')}`).concat(['EX.501']),
+                            // units: Array.from({ length: 120 }, (_, i) => `EX.${String(i + 201).padStart(3, '0')}`).concat(['EX.501']),
+                            // toggle() {
+                            //     this.isOpen = !this.isOpen;
+                            // },
+                            units: Array.from(
+                            { length: (243 - 201 + 1) + (320 - 303 + 1) }, // total elemen yang valid
+                            (_, i) => {
+                                // range pertama (201–243)
+                                if (i < 243 - 201 + 1) {
+                                return `EX.${String(201 + i).padStart(3, '0')}`;
+                                }
+                                // range kedua (303–320)
+                                return `EX.${String(303 + (i - (243 - 201 + 1))).padStart(3, '0')}`;
+                            }
+                            ).concat(['EX.501', 'RB.003']),
                             toggle() {
-                                this.isOpen = !this.isOpen;
+                            this.isOpen = !this.isOpen;
                             },
+
                             close() {
                                 this.isOpen = false;
                             },

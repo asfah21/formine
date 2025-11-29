@@ -55,7 +55,7 @@
 
             <div class="container mx-auto p-0">
 
-                {{-- Start Pop Up --}}
+                <!-- {{-- Start Pop Up --}} -->
 
                 <!-- Modal toggle (hidden) -->
                 <button id="trigger-modal-btn" data-modal-target="progress-modal" data-modal-toggle="progress-modal"
@@ -146,7 +146,7 @@
                     });
                 </script>
 
-                {{-- End Pop Up --}}
+                <!-- {{-- End Pop Up --}} -->
 
                 <form action="{{ route('form-lv') }}" method="POST" id="myForm">
                     @csrf
@@ -712,7 +712,7 @@
                                     length: 23
                                 }, (_, i) => `LV.${String(i + 1).padStart(3, '0')}`)
                                 .filter(unit => !['LV.004', 'LV.015', 'LV.016', 'LV.017', 'LV.003'].includes(unit))
-                                .concat(['LV.100', 'LT.001']),
+                                .concat(['LV.100', 'LT.001', 'LV.031','LV.024', 'LV.050']),
 
                             toggle() {
                                 this.isOpen = !this.isOpen;

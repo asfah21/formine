@@ -561,7 +561,7 @@
 
     <section class="bg-white dark:bg-gray-900">
         <div
-            class="py-10 px-10 mb-10 sm:py-10 bg-gray-50 lg:py-20 dark:bg-gray-800 border-t border-b border-gray-100 dark:border-gray-700">
+            class="py-10 px-10 sm:py-10 bg-gray-50 lg:py-20 dark:bg-gray-800 border-t border-b border-gray-100 dark:border-gray-700">
             <div class="mx-auto max-w-screen-md sm:text-center">
                 <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">Saran dan
                     Masukan</h2>
@@ -604,93 +604,6 @@
             </div>
         </div>
     </section>
-
-    <style>
-        /* CSS untuk overlay */
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 50;
-        }
-
-        /* Sembunyikan overlay secara default */
-        .hideku {
-            display: none;
-        }
-
-        /* Tampilkan overlay */
-        .visible {
-            display: block;
-        }
-
-        .chat-bubble-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #1b8632;
-            /* Color of the chat bubble */
-            border-radius: 18%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .chat-bubble-btn:hover {
-            background-color: #0d6320;
-            /* Darker color on hover */
-        }
-
-        .chat-bubble-text {
-            margin-top: 0px;
-            text-align: center;
-            font-size: 9px;
-            /* color: white; */
-            background-color: none;
-            padding: 2px 2px;
-            border-radius: 15%;
-            width: 50px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
-
-    <!-- Bubble Chat -->
-    <div id="chatBubble"
-        style="position: fixed; bottom: 65px; right: 12px; z-index: 9999; display: flex; flex-direction: column; align-items: center;">
-        <a href="{{ url('./wo_it') }}" id="chatButton" class="chat-bubble-btn">
-            <!-- Chat Bubble Icon -->
-
-            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 9h6m-6 3h6m-6 3h6M6.996 9h.01m-.01 3h.01m-.01 3h.01M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/>
-              </svg>
-
-        </a>
-        <div class="chat-bubble-text text-gray-900 dark:text-white">
-            List WO
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Create a new chat bubble button
-            const chatButton = document.getElementById('chatButton');
-
-            // Set up event listener for the chat button
-            chatButton.addEventListener('click', function() {
-                window.location.href = './wo_it'; // Navigate to the URL
-            });
-        });
-    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
 

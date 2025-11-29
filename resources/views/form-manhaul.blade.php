@@ -213,13 +213,24 @@
 
                         <div class="sm:col-span-2">
                             <label for="nama_driver"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Lengkap</label>
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Lengkap (<span id="counter" class="end-2 top-1/2 -translate-y-1/2 text-xs">20</span>)</label>
                             <div class="relative flex items-center">
                                 <input type="text" name="nama_driver" id="nama_driver"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="Tuliskan nama anda" required />
+                                    placeholder="Tuliskan nama anda" maxlength="20" required />
                             </div>
                         </div>
+                        <script>
+                            const namaDriverInput = document.getElementById('nama_driver');
+                            const counterSpan = document.getElementById('counter');
+                            const maxChars = 20;
+
+                            namaDriverInput.addEventListener('input', function() {
+                                const currentLength = this.value.length;
+                                const remainingChars = maxChars - currentLength;
+                                counterSpan.textContent = remainingChars;
+                            });
+                        </script>
 
                         <div>
                             <label for="departemen"
@@ -721,9 +732,9 @@
                             selectedValue: '',
                             selectedText: '',
 
-                            units: Array.from({ length: 7 }, (_, i) => `MH.${String(i + 1).padStart(3, '0')}`),
+                            units: Array.from({ length: 7 }, (_, i) => `MH.${String(i + 1).padStart(3, '0')}`)
                             // .filter(unit => !['LV.004', 'LV.015', 'LV.016', 'LV.017', 'LV.003'].includes(unit))
-                            // .concat(['LV.100']),
+                            .concat(['BK.001','BK.002']),
 
                             toggle() {
                                 this.isOpen = !this.isOpen;

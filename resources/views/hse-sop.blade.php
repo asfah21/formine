@@ -116,7 +116,7 @@
     </section>
 
     <section class="bg-white dark:bg-gray-900">
-        <div class="py-10 px-10 mb-10 sm:py-10 bg-gray-50 lg:py-20 dark:bg-gray-800 border-t border-b border-gray-100 dark:border-gray-700">
+        <div class="py-10 px-10 sm:py-10 bg-gray-50 lg:py-20 dark:bg-gray-800 border-t border-b border-gray-100 dark:border-gray-700">
             <div class="mx-auto max-w-screen-md sm:text-center">
                 <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">Saran dan Masukan</h2>
                 <p class="mx-auto mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400">

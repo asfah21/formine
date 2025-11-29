@@ -837,7 +837,7 @@
                     <text class="cls-34" text-anchor="middle" transform="translate(417.57 279.9)"><tspan x="0" y="0">{{$certi->instansi}}</tspan></text>
                     <text class="cls-36" text-anchor="middle" transform="translate(417.57 303.51)"><tspan x="0" y="0">Telah melaksanakan Praktik Kerja Lapangan (PKL)</tspan></text>
                     <text class="cls-38" text-anchor="middle" transform="translate(417.57 319.66)">
-                            <tspan class="cls-44" x="0" y="0">Magang {{$sesi->jabatan}} pada </tspan>
+                            <tspan class="cls-44" x="0" y="0">Department {{$sesi->jabatan}} pada </tspan>
                             <tspan class="cls-39">PT. Gunung Samudera Internasional (PT. GSI)</tspan>
                             <tspan class="cls-44"> {{$certi->lokasi}}</tspan>
                     </text>

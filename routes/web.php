@@ -28,10 +28,16 @@ use App\Http\Controllers\CertController;
 use App\Http\Controllers\SesiCertController;
 use App\Http\Controllers\StockController;
 use App\Models\SesiCert;
+use App\Http\Controllers\TimesheetController;
+use App\Http\Controllers\TowerlampController;
 
 //Start Stock Route
 Route::get('stock', [StockController::class, 'index'])->name('stock.index');
 Route::post('stock/store', [StockController::class, 'store'])->name('stock.store');
+
+Route::fallback(function () {
+    abort(404);
+});
 
 // Halaman autentikasi sebelum masuk ke "Barang Masuk" dan "Barang Keluar"
 Route::get('stock/auth', function () {return view('stock.auth');})->name('stock.auth');
@@ -92,7 +98,7 @@ Route::post('/cert/auth', function (Request $request) {
     }
     sleep(rand(1, 3)); //sleep random
     return back()->with('error', 'Password salah!');
-})->middleware('throttle:5,30')->name('cert.auth.submit');
+})->middleware('throttle:10,10')->name('cert.auth.submit');
 
 // === Public ===
 Route::get('cert/detail/{id}/{name}', [SesiCertController::class, 'cert'])->name('cert.detail');
@@ -231,6 +237,13 @@ Route::post('/ttd-pengawas-cp', [CompactorController::class, 'ttdEX'])->name('tt
 Route::get('/hasil-cp', [CompactorController::class, 'hasilCp'])->name('hasil-cp');
 Route::get('/detail-cp/{name}/{aptnumx}', [CompactorController::class, 'showx'])->name('detailCp.show');
 
+//TL / Tower Lamp Route
+Route::get('/form-tl', [TowerlampController::class, 'showForm'])->name('form-tl');
+Route::post('/form-tl', [TowerlampController::class, 'store'])->name('form-tl');
+Route::post('/ttd-pengawas-tl', [TowerlampController::class, 'ttdEX'])->name('ttd-pengawas-tl');
+Route::get('/hasil-tl', [TowerlampController::class, 'hasilTl'])->name('hasil-tl');
+Route::get('/detail-tl/{name}/{aptnumx}', [TowerlampController::class, 'showx'])->name('detailTl.show');
+
 //Bulldozer Route
 Route::get('/form-bd', [BulldozerController::class, 'showForm'])->name('form-bd');
 Route::post('/form-bd', [BulldozerController::class, 'store'])->name('form-bd');
@@ -286,4 +299,13 @@ Route::get('/azvan-it', function () {
     return view('azvan-it');
 })->name('azvan-it.form'); //only return view without controller
 
+// use App\Http\Controllers\TimesheetController;
 
+Route::get('/timesheets', [TimesheetController::class, 'index'])->name('timesheets.index');
+Route::post('/timesheets', [TimesheetController::class, 'store'])->name('timesheets.store');
+Route::get('/timesheets/hasil', [TimesheetController::class, 'hasil'])->name('timesheets.hasil');
+Route::get('/timesheets/{name}/{aptnumx}', [TimesheetController::class, 'show'])->name('timesheets.show');
+
+// Timesheet Routes
+Route::get('/timesheet/{name}/{aptnumx}', [\App\Http\Controllers\TimesheetController::class, 'show'])
+    ->name('timesheet.show');

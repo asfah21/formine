@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Form Excavator')
+@section('title', 'Form Compactor')
 
 @section('content')
 
@@ -306,7 +306,7 @@
 
             <div class="container mx-auto p-0">
 
-                {{-- Start Pop Up --}}
+                <!-- {{-- Start Pop Up --}} -->
 
                 <!-- Modal toggle (hidden) -->
                 <button id="trigger-modal-btn" data-modal-target="progress-modal" data-modal-toggle="progress-modal"
@@ -397,7 +397,7 @@
                     });
                 </script>
 
-                {{-- End Pop Up --}}
+                <!-- {{-- End Pop Up --}} -->
 
                 <form action="{{ route('form-cp') }}" method="POST" id="myForm">
                     @csrf
@@ -417,7 +417,7 @@
                     <!-- Step Content -->
                     <div class="grid gap-4 sm:gap-5 sm:grid-cols-2">
 
-                        {{-- <div class="sm:col-span-2">
+                        <!-- {{-- <div class="sm:col-span-2">
                             <label for="nama_driver"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Lengkap</label>
                             <div class="relative flex items-center">
@@ -425,7 +425,7 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="Tuliskan nama anda" required />
                             </div>
-                        </div> --}}
+                        </div> --}} -->
 
                         <div class="sm:col-span-2">
                             <div x-data="dropdown_name()" x-init="init()" class="relative">
@@ -1090,9 +1090,10 @@
                             search: '',
                             selectedValue: '',
                             selectedText: '',
-                            units: Array.from({ length: 10 }, (_, i) => `VB.${String(i + 101).padStart(3, '0')}`)
-                            .filter(unit => !['VB.102', 'VB.109', 'VB.110', 'VB.108']
-                            .includes(unit)),
+                            units: Array.from({ length: 4 }, (_, i) => `VB.${String(i + 101).padStart(3, '0')}`)
+                            .filter(unit => !['VB.102']
+                            .includes(unit))
+                            .concat(['CP.106', 'CP.107']),
                             // units: Array.from({ length: 120 }, (_, i) => `EX.${String(i + 201).padStart(3, '0')}`).concat(['EX.501']),
                             toggle() {
                                 this.isOpen = !this.isOpen;
