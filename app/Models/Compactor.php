@@ -9,7 +9,7 @@ class Compactor extends Model
 {
     use HasFactory;
 
-    //protected $table = 'compators'; //Arahkan ke tabel db langsung
+    //protected $table = 'compactors'; //Arahkan ke tabel db langsung
 
     protected $fillable = [
         'cp_id',
