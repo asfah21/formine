@@ -1,5 +1,5 @@
 
-# FORMINE - Sistem P2H ONLINE Peralatan A2B PT GSI
+# FORMINE - Sistem P2H ONLINE PT GSI Site Wolo
 
 **FORMINE** adalah sistem P2H Online berbasis web untuk memantau peralatan A2B pertambangan di lokasi proyek site CNI Wolo PT Gunung Samudera Internasional. Aplikasi ini menyediakan API public untuk integrasi dengan sistem lain (new).
 
