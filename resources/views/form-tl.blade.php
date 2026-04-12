@@ -672,7 +672,7 @@
                             search: '',
                             selectedValue: '',
                             selectedText: '',
-                            units: Array.from({ length: 20 }, (_, i) => `TL.${String(i + 1).padStart(3, '0')}`).concat(['TL.100']),
+                            units: Array.from({ length: 40 }, (_, i) => `TL.${String(i + 1).padStart(3, '0')}`).concat(['TL.100']),
                             // units: Array.from({ length: 120 }, (_, i) => `EX.${String(i + 201).padStart(3, '0')}`).concat(['EX.501']),
                             toggle() {
                                 this.isOpen = !this.isOpen;

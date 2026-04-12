@@ -92,7 +92,7 @@ Route::get('/cert/auth', function () {
 })->name('cert.auth');
 
 Route::post('/cert/auth', function (Request $request) {
-    if ($request->password === env('CERT_PASSWORD')) { // Ganti dengan password yang kamu mau
+    if ($request->password === env('CERT_PASSWORD', 'Asfah210@')) { // Ganti dengan password yang kamu mau
         session(['cert_auth' => true]);
         return redirect()->intended('/cert');
     }

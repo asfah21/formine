@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Adt;
 use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\Storage;
 
 class AdtController extends Controller
 {
@@ -238,6 +239,11 @@ class AdtController extends Controller
 
         $imagePath = 'storage/images/ttd_adt/' . $filename;
         file_put_contents($imagePath, $decodedImage);
+
+        //untuk prod
+        // $path = 'images/ttd_adt/' . $filename;
+        // Storage::disk('public')->put($path, $decodedImage);
+
 
         //Alert::html('Berhasil', 'Form P2H Anda Telah Dikirim! <br><br><a href="https://www.google.com" class="btn btn-secondary">Lihat Hasil</a>', 'success');
         // return redirect()->route('form-adt')->with('success', 'Survey berhasil dikirim!');

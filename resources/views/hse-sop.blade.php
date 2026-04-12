@@ -22,45 +22,7 @@
                 <input type="text" id="searchInput" placeholder="Cari SOP atau IK disini..."
                     class="w-full px-4 py-2 mb-4 text-sm border rounded-lg focus:ring focus:ring-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white" />
 
-                {{-- <div id="sopDivider" class="flex items-center my-4 mt-4">
-                    <span class="text-gray-700 dark:text-gray-300 font-medium mr-2">List SOP</span>
-                    <hr class="flex-grow border-t border-gray-300 dark:border-gray-600">
-                </div>
-
-                <div id="itemList" class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 my-4">
-
-                    @php
-                        $sops = [
-                            ['name' => 'Penggunaan Excavator', 'link' => 'https://drive.google.com/file/d/1UYijyYWg3Nk94cpe4Ok5QdVnmlGQQ1Rz/view?usp=drive_link'],
-                            ['name' => 'Pemeliharaan Preventif & Korektif', 'link' => 'https://drive.google.com/file/d/1h3hNfo2BmSO7A3dzdIOGsC4GU00KezMV/view?usp=drive_link'],
-                            ['name' => 'Tyre Management', 'link' => 'https://drive.google.com/file/d/1DkJBj5Z0W2-uVloJXaBtDKY0DvNfIh7u/view?usp=drive_link'],
-                            ['name' => 'Kalibrasi', 'link' => 'https://drive.google.com/file/d/1yEUzJIu8fBlwP4vSrOdze2jy8NZ8CSRW/view?usp=drive_link'],
-                            ['name' => 'Tools Facility Equipment Support', 'link' => 'https://drive.google.com/file/d/1iulynQbu_t7EkMSmGV0kfEGgWsq7g2EN/view?usp=drive_link'],
-                        ];
-                    @endphp
-
-                    @foreach ($sops as $sop)
-                        <a href="{{ $sop['link'] }}"
-                            class="relative flex items-center rounded-lg border border-gray-200 bg-white px-4 py-2 hover:bg-gray-50
-                                dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-
-                            <span class="absolute top-0 right-0 bg-green-500 text-white text-[0.6rem] font-bold px-2 py-[2px] shadow-md"
-                                style="border-bottom-left-radius: 10px; border-top-right-radius: 7px;">&nbsp;SOP
-                            </span>
-
-                            <svg class="me-2 h-4 w-4 shrink-0 text-gray-900 dark:text-white" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
-                                <text x="50%" y="62%" text-anchor="middle" font-size="8" font-family="Arial, sans-serif"
-                                    fill="currentColor" font-weight="bold">SOP</text>
-                            </svg>
-
-                            <span class="text-sm font-medium text-gray-900 dark:text-white">&nbsp;{{ $sop['name'] }}</span>
-                        </a>
-
-                    @endforeach
-                </div> --}}
-
+                <!-- Divider SOP -->
                 <div id="sopDivider" class="flex items-center my-4 mt-8">
                     <span class="text-gray-700 dark:text-gray-300 font-medium mr-2">List IK (Intruksi Kerja)</span>
                     <hr class="flex-grow border-t border-gray-300 dark:border-gray-600">
@@ -75,8 +37,8 @@
                             ['name' => 'Penggunaan Dozer', 'link' => 'https://drive.google.com/file/d/1ldyvCeszOdaY6rwiqLa2nUMetY2n70eU/view?usp=drive_link'],
                             ['name' => 'Penggunaan Vibro', 'link' => 'https://drive.google.com/file/d/1JBpadWXzIYCk0hebLZMCKBGljDNd4BpF/view?usp=drive_link'],
                             ['name' => 'Penggunaan Tower Lamp', 'link' => 'https://drive.google.com/file/d/1xWWT-crlUZvdejWsnKSfrUK1a0QO9ICX/view?usp=drive_link'],
-                            ['name' => 'Penggunaan LV', 'link' => 'https://drive.google.com/file/d/1KHdG07R8YzQrSgF-QOCryRHbkRScrTvr/view?usp=drive_link'],
-                            ['name' => 'Penggunaan Dump Truck', 'link' => 'https://drive.google.com/file/d/16f5-fcJBTN4O-urGc_U9ncn1yEBxvIq3/view?usp=drive_link'],
+                            ['name' => 'Penggunaan LV', 'link' => 'https://drive.google.com/file/d/1Vp2dAqXDcaPCjby1mKk78vJSL14pjD0M/view'],
+                            ['name' => 'Penggunaan Dump Truck', 'link' => 'https://drive.google.com/file/d/1qHt43sxt-nr87ti5tvon9Fjj3mBacje1/view'],
                             ['name' => 'Penggunaan Water Truck', 'link' => 'https://drive.google.com/file/d/1e5B55TfnYmFqtz-NJmBldS1UY9eB7o2p/view?usp=drive_link'],
                             ['name' => 'Penggunaan Fuel Truck', 'link' => 'https://drive.google.com/file/d/1iCZq_aoKPACPkJLvB_7nrUGOC1c5f5GG/view?usp=drive_link'],
                             ['name' => 'Penggunaan Breaker', 'link' => 'https://drive.google.com/file/d/1gqgXo4g_u0uWZhWy91TEPK0hBtjBCZMh/view?usp=drive_link'],

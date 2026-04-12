@@ -730,7 +730,7 @@
                             search: '',
                             selectedValue: '',
                             selectedText: '',
-                            units: Array.from({ length: 120 }, (_, i) => `DT.${String(i + 1).padStart(3, '0')}`).concat(['DT.201', 'DT.202', 'DT.203']),
+                            units: Array.from({ length: 120 }, (_, i) => `DT.${String(i + 1).padStart(3, '0')}`).concat(['DT.200', 'DT.201', 'DT.202', 'DT.203']),
                             // units: Array.from({ length: 120 }, (_, i) => `EX.${String(i + 201).padStart(3, '0')}`).concat(['EX.501']),
                             toggle() {
                                 this.isOpen = !this.isOpen;

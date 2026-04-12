@@ -711,8 +711,8 @@
                             units: Array.from({
                                     length: 23
                                 }, (_, i) => `LV.${String(i + 1).padStart(3, '0')}`)
-                                .filter(unit => !['LV.004', 'LV.015', 'LV.016', 'LV.017', 'LV.003'].includes(unit))
-                                .concat(['LV.100', 'LT.001', 'LV.031','LV.024', 'LV.050']),
+                                .filter(unit => !['LV.004', 'LV.003'].includes(unit))
+                                .concat(['LV.100', 'LT.001', 'LV.031','LV.024', 'LV.050', 'LV.051', 'LV.052']),
 
                             toggle() {
                                 this.isOpen = !this.isOpen;

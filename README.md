@@ -9,14 +9,14 @@
 
 ### 1. **Manajemen Peralatan (Equipment Management)**
 Mengelola data P2H peralatan A2B pertambangan dengan detail lengkap:
-- **Manhaul** - Kendaraan / BUS pengangkut manpower 
-- **Dump Truck** - Truk pengangkut material dengan bak terbuka
-- **Excavator (Exca)** - Alat penggali dan pemindah material
-- **Compactor** - Mesin pemadatan tanah/aspal
-- **Tower Lamp** - Lampu tower untuk pencahayaan lokasi
-- **Bulldozer** - Bulldozer untuk pengolahan tanah
-- **Grader** - Mesin penyamarataan permukaan
-- **Light Vehicle (LV)** - Kendaraan ringan untuk mobilitas
+- **Manhaul** - Transportasi personel/manpower.
+- **Dump Truck** - Truk pengangkutan material.
+- **Excavator (Exca)** - Penggalian dan pemindahan material
+- **Compactor** - Pemadatan tanah, sub-base
+- **Tower Lamp** - Lampu untuk pencahayaan lokasi
+- **Bulldozer** - Bulldozer untuk pengolahan material
+- **Grader** - Pemerataan dan pembetukan permukaan
+- **Light Vehicle (LV)** - Kendaraan ringan untuk mobilitas dan support
 - **Articulated Dump Truck (ADT)** - Truk dump bergerak/artikulasi
 
 ### 2. **Tracking Data Operasional**
