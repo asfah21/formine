@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Jobs\SendFormToGsiCorp;
 
 class Lv extends Model
 {
@@ -58,4 +59,14 @@ class Lv extends Model
         'KunciBautroda',
         'Apar', /*End*/
     ];
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::created(function ($model) {
+            SendFormToGsiCorp::dispatch('p2h_lv', $model->toArray());
+        });
+    }
 }

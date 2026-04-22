@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Jobs\SendFormToGsiCorp;
 
 class Manhaul extends Model
 {
@@ -105,4 +106,14 @@ class Manhaul extends Model
         'strobe',
         'created_at',
     ];
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::created(function ($model) {
+            SendFormToGsiCorp::dispatch('p2h_manhaul', $model->toArray());
+        });
+    }
 }

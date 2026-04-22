@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Jobs\SendFormToGsiCorp;
 
 class Towerlamp extends Model
 {
@@ -45,4 +46,14 @@ class Towerlamp extends Model
         'kondisi_switch'
 
     ];
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::created(function ($model) {
+            SendFormToGsiCorp::dispatch('p2h_towerlamp', $model->toArray());
+        });
+    }
 }

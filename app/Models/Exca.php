@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Jobs\SendFormToGsiCorp;
 
 class Exca extends Model
 {
@@ -95,4 +96,14 @@ class Exca extends Model
         'strobe'
 
     ];
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::created(function ($model) {
+            SendFormToGsiCorp::dispatch('p2h_exca', $model->toArray());
+        });
+    }
 }

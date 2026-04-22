@@ -30,6 +30,7 @@ use App\Http\Controllers\StockController;
 use App\Models\SesiCert;
 use App\Http\Controllers\TimesheetController;
 use App\Http\Controllers\TowerlampController;
+use App\Http\Controllers\CompressorController;
 
 //Start Stock Route
 Route::get('stock', [StockController::class, 'index'])->name('stock.index');
@@ -243,6 +244,14 @@ Route::post('/form-tl', [TowerlampController::class, 'store'])->name('form-tl');
 Route::post('/ttd-pengawas-tl', [TowerlampController::class, 'ttdEX'])->name('ttd-pengawas-tl');
 Route::get('/hasil-tl', [TowerlampController::class, 'hasilTl'])->name('hasil-tl');
 Route::get('/detail-tl/{name}/{aptnumx}', [TowerlampController::class, 'showx'])->name('detailTl.show');
+
+// Compressor Route
+Route::get('/form-cr', [CompressorController::class, 'showForm'])->name('form-cr');
+Route::post('/form-cr', [CompressorController::class, 'store'])->name('form-cr');
+Route::post('/ttd-pengawas-cr', [CompressorController::class, 'ttdEX'])->name('ttd-pengawas-cr');
+Route::get('/hasil-cr', [CompressorController::class, 'hasilCr'])->name('hasil-cr');
+Route::get('/detail-cr/{name}/{aptnumx}', [CompressorController::class, 'showx'])->name('detailCr.show');
+
 
 //Bulldozer Route
 Route::get('/form-bd', [BulldozerController::class, 'showForm'])->name('form-bd');

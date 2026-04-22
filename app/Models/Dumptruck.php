@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Jobs\SendFormToGsiCorp;
 
 class Dumptruck extends Model
 {
@@ -105,4 +106,14 @@ class Dumptruck extends Model
         'gauge2'
 
     ];
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::created(function ($model) {
+            SendFormToGsiCorp::dispatch('p2h_dt', $model->toArray());
+        });
+    }
 }

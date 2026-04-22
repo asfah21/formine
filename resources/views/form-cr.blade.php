@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Form ADT')
+@section('title', 'Form Compressor Truck')
 
 @section('content')
 
@@ -15,96 +15,39 @@
 
     @php
         $fields = [
-            'PassFuel',
-            'Tyre',
-            'FinelDrive',
-            'SelinderSteering',
-            'DriveShaft',
-            'DropBox',
-            'Pivot',
-            'CFrame',
-            'LevelOliHidraulic',
-            'LevelOliTransmisi',
-            'BatteryAki',
-            'SelinderDump',
-            'DumpBody',
-            'RubberSpring',
-            'PropellarShaft',
-            'AxelFront',
-            'AFrame',
-            'LevelOliBrake',
-            'Muffler',
-            'LevelOliEngine',
-            'LevelAirCoolant',
-            'VBelt',
-            'AirCleaner',
-            'WaterSeparator',
-
-            'Apar',
-            'FireSup',
-            'TaliPengaws',
-            'Radio',
-            'SafetyCone',
-
-            'KebersihanEquip',
-
-            'LevelOliMesin',
-            'LevelOliTransmisi2',
-            'LevelOliHydraulic',
-            'LevelOliRem',
-            'LevelFuel',
-            'OliTemp',
-            'TekananRemTractor',
-            'TekananRemTrailer',
-            'Kemudi',
-            'PangaturStir',
-            'PedalGas',
-            'PedalRemService',
-            'PedalRetarder',
-            'Difflock',
-            'TuasTransmisi',
-            'TuasLeverDump',
-            'RemParkir',
-            'LDB',
-            'ATC',
-            'LockTransmisi',
-            'EngineBrake',
-            'SeatBelt',
-            'LeverSingnal',
-            'Klakson',
-
-            'KebocoranOli',
-            'KebocoranAir',
-            'KebocoranUdara',
-            'KebocoranFuel',
-
-            'SuaraMasuk',
-            'SuaraTransmisi',
-            'SuaraDifferential',
-
-            'StirKemudi',
-            'Retarder',
-            'RemKaki',
-            'RemParkir2',
-            'GigiPerseneling',
-            'KlaksonMundur',
-            'LampuPeringatan',
-            'Ecu',
-            'SystemHidraulik',
-            'Gauge',
+            'kebersian_mesin',
+            'switch',
+            'periksa_hose',
+            'periksa_sebelum_mesin_hidup',
+            'periksa_kondisi_level_solar',
+            'periksa_kondisi_level_oli_mesin',
+            'periksa_kondisi_kebocoran_oli_mesin',
+            'periksa_kondisi_level_oli_kompresor',
+            'periksa_kondisi_level_air_battery',
+            'periksa_kondisi_level_air_radiator',
+            'periksa_kondisi_kebocoran_solar',
+            'periksa_air_cleaner',
+            'periksa_kabel_wiring_kendor',
+            'cek_semua_instalasi',
+            'pemeriksaan_setelah_mesin_hidup',
+            'panaskan_mesin',
+            'cek_semua_meteran_normal',
+            'periksa_v_pulley',
+            'periksa_suara_getaran_tidak_normal',
+            'buang_sisa_air_pada_drain'
         ];
     @endphp
 
     <section class="min-h-screen bg-white dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16 !pt-28">
-            <img class="azvan h-auto max-w-full rounded-lg" src="{{ asset('storage/images/ADT.svg') }}" alt="Azvan IT">
+            <img class="azvan h-auto max-w-full rounded-lg" src="{{ asset('storage/images/CR.svg') }}" alt="Azvan IT">
 
             <div class="container mx-auto p-0">
 
                 {{-- GSI Transition Modal — modular --}}
                 @include('partials.gsi-transition-modal')
 
-                <form action="{{ route('form-adt') }}" method="POST" id="myForm">
+                <form action="{{ route('form-cr') }}" method="POST" id="myForm">
                     @csrf
                     <div class="border-b-2 py-4 mb-7">
                         <div class="tracking-wide text-xs font-bold text-gray-500 dark:text-white mb-1 leading-tight">
@@ -215,7 +158,7 @@
                                 </ul>
                             </div>
 
-                            <input type="hidden" id="no_unit" name="NomorUnit" x-model="selectedValue" />
+                            <input type="hidden" id="no_unit" name="no_unit" x-model="selectedValue" />
                         </div>
 
                         <div class="relative max-w-sm hidden">
@@ -256,7 +199,7 @@
                             <label for="shift"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Shift</label>
                             <div class="relative flex items-center">
-                                <select id="shift" name="Shift"
+                                <select id="shift" name="shift"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     required>
                                     <option value="">Pilih shift</option>
@@ -267,11 +210,11 @@
                         </div>
 
                         <div class="w-full">
-                            <label for="StartHM"
+                            <label for="start_hm"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start HM
                                     <i class="text-xs font-light">(contoh: 2304.5)</i></label>
                             <div class="relative flex items-center">
-                                <input type="number" name="StartHM" id="StartHM" step="0.1"
+                                <input type="number" name="start_hm" id="start_hm" step="0.1"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="KM Awal" required>
                             </div>
@@ -536,7 +479,7 @@
                 <!-- Bubble Chat -->
                 <div id="chatBubble"
                     style="position: fixed; bottom: 65px; right: 12px; z-index: 40; display: flex; flex-direction: column; align-items: center;">
-                    <a href="{{ url('./hasil-adt') }}" id="chatButton" class="chat-bubble-btn">
+                    <a href="{{ url('./hasil-cr') }}" id="chatButton" class="chat-bubble-btn">
                         <!-- Chat Bubble Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-5 -5 34 34" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -556,7 +499,7 @@
 
                         // Set up event listener for the chat button
                         chatButton.addEventListener('click', function() {
-                            window.location.href = './hasil-adt'; // Navigate to the URL
+                            window.location.href = './hasil-cr'; // Navigate to the URL
                         });
                     });
                 </script>
@@ -602,7 +545,7 @@
                                 }).then(result => {
                                     if (result.dismiss === Swal.DismissReason.cancel) {
                                         // Redirect to the specified URL when 'Lihat Hasil' is clicked
-                                        window.location.href = './hasil-adt';
+                                        window.location.href = './hasil-cr';
                                     } else {
                                         // Reload the page when 'OK' is clicked or modal is dismissed
                                         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -641,11 +584,7 @@
                             search: '',
                             selectedValue: '',
                             selectedText: '',
-
-                            units: Array.from({ length: 10 }, (_, i) => `ADT.${String(i + 1).padStart(3, '0')}`)
-                            .filter(unit => !['ADT.009', 'ADT.010'].includes(unit)),
-
-                            // units: Array.from({ length: 120 }, (_, i) => `DT.${String(i + 1).padStart(3, '0')}`),
+                            units: Array.from({ length: 40 }, (_, i) => `AC.${String(i + 1).padStart(3, '0')}`).concat(['AC.100']),
                             // units: Array.from({ length: 120 }, (_, i) => `EX.${String(i + 201).padStart(3, '0')}`).concat(['EX.501']),
                             toggle() {
                                 this.isOpen = !this.isOpen;

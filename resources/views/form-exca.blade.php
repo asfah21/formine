@@ -84,98 +84,8 @@
 
             <div class="container mx-auto p-0">
 
-                {{-- Start Pop Up --}}
-
-                <!-- Modal toggle (hidden) -->
-                <button id="trigger-modal-btn" data-modal-target="progress-modal" data-modal-toggle="progress-modal"
-                    class="hidden block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    type="button">Toggle modal
-                </button>
-
-                <!-- Main modal -->
-                <div id="progress-modal" tabindex="-1" aria-hidden="true"
-                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                    <div class="relative p-4 w-full max-w-md max-h-full">
-
-                        <!-- BACKDROP (overlay bg) -->
-                        <div class="fixed inset-0 bg-gray-900 bg-opacity-30 dark:bg-opacity-30"></div>
-
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
-                            <button type="button"
-                                class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                data-modal-hide="progress-modal">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 14 14">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                </svg>
-                                <span class="sr-only">Close modal</span>
-                            </button>
-                            <div class="p-4 md:p-5">
-                                <div class="grid grid-cols-2 gap-2 items-center">
-                                    <svg class="w-10 h-10 text-gray-400 dark:text-gray-500 mb-4" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                                        <path
-                                            d="M8 5.625c4.418 0 8-1.063 8-2.375S12.418.875 8 .875 0 1.938 0 3.25s3.582 2.375 8 2.375Zm0 13.5c4.963 0 8-1.538 8-2.375v-4.019c-.052.029-.112.054-.165.082a8.08 8.08 0 0 1-.745.353c-.193.081-.394.158-.6.231l-.189.067c-2.04.628-4.165.936-6.3.911a20.601 20.601 0 0 1-6.3-.911l-.189-.067a10.719 10.719 0 0 1-.852-.34 8.08 8.08 0 0 1-.493-.244c-.053-.028-.113-.053-.165-.082v4.019C0 17.587 3.037 19.125 8 19.125Zm7.09-12.709c-.193.081-.394.158-.6.231l-.189.067a20.6 20.6 0 0 1-6.3.911 20.6 20.6 0 0 1-6.3-.911l-.189-.067a10.719 10.719 0 0 1-.852-.34 8.08 8.08 0 0 1-.493-.244C.112 6.035.052 6.01 0 5.981V10c0 .837 3.037 2.375 8 2.375s8-1.538 8-2.375V5.981c-.052.029-.112.054-.165.082a8.08 8.08 0 0 1-.745.353Z" />
-                                    </svg>
-
-                                </div>
-                                <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Udah baca SOP/IK belum?
-                                </h3>
-                                <p class="text-gray-500 dark:text-gray-400 mb-6">Biar makin aman dalam bekerja, baca dulu
-                                    SOP/IK sebelum mengoperasikan kendaraan ya!
-                                <p>
-                                <div class="flex justify-between mb-1 text-gray-500 dark:text-gray-400">
-                                    <span class="text-xs italic text-gray-900 dark:text-white font-normal">Keselamatan kerja
-                                        itu tanggung jawab bersama, guys!</span>
-                                    <span class="text-xs font-semibold text-gray-900 dark:text-white"></span>
-                                </div>
-                                {{-- <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
-                                <div class="bg-orange-500 h-2.5 rounded-full" style="width: 100%"></div>
-                            </div> --}}
-                                <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600 overflow-hidden">
-                                    <div class="h-2.5 rounded-full"
-                                        style="
-                                    width: 100%;
-                                    background-image: repeating-linear-gradient(
-                                      45deg,
-                                      #facc15,  /* kuning */
-                                      #facc15 10px,
-                                      #000000 10px,
-                                      #000000 20px
-                                    );
-                                  ">
-                                    </div>
-                                </div>
-
-                                <!-- Modal footer -->
-                                <div class="flex items-center mt-6 space-x-4 rtl:space-x-reverse">
-                                    <a href="./hse-sop" target="_blank">
-                                        <button data-modal-hide="progress-modal" type="button"
-                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Oke,
-                                            Mau dong!</button>
-                                    </a>
-                                    <button data-modal-hide="progress-modal" type="button"
-                                        class="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Nggak</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <script>
-                    window.addEventListener('DOMContentLoaded', () => {
-                        setTimeout(() => {
-                            const triggerBtn = document.getElementById('trigger-modal-btn');
-                            if (triggerBtn) {
-                                triggerBtn.click();
-                            }
-                        }, 123); // delay 100ms untuk memastikan Flowbite sudah terinisialisasi
-                    });
-                </script>
-
-                {{-- End Pop Up --}}
+                {{-- GSI Transition Modal — modular --}}
+                @include('partials.gsi-transition-modal')
 
                 <form action="{{ route('form-exca') }}" method="POST" id="myForm">
                     @csrf
@@ -608,7 +518,7 @@
 
                 <!-- Bubble Chat -->
                 <div id="chatBubble"
-                    style="position: fixed; bottom: 65px; right: 12px; z-index: 9999; display: flex; flex-direction: column; align-items: center;">
+                    style="position: fixed; bottom: 65px; right: 12px; z-index: 40; display: flex; flex-direction: column; align-items: center;">
                     <a href="{{ url('./hasil-exca') }}" id="chatButton" class="chat-bubble-btn">
                         <!-- Chat Bubble Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-5 -5 34 34" stroke-width="1.5"

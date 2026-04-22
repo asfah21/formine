@@ -105,6 +105,7 @@
                                     <li><a href="{{ url('/form-lv') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">LV</a></li>
                                     <li><a href="{{ url('/form-manhaul') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Manhaul</a></li>
                                     <li><a href="{{ url('/form-tl') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tower Lamp</a></li>
+                                    <li><a href="{{ url('/form-cr') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Air Compressor</a></li>
                                 </ul>
                                 {{-- <div class="py-1">
                                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
@@ -133,6 +134,7 @@
                                     <li><a href="{{ url('/hasil-lv') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">LV</a></li>
                                     <li><a href="{{ url('/hasil-manhaul') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Manhaul</a></li>
                                     <li><a href="{{ url('/hasil-tl') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tower Lamp</a></li>
+                                    <li><a href="{{ url('/form-cr') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Air Compressor</a></li>
                                 </ul>
                                 {{-- <div class="py-1">
                                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
