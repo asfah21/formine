@@ -2191,7 +2191,7 @@ td
 
         <td colspan=11 rowspan=5 class=xl157 style='border-right:.5pt solid black;border-top:none!important;border-left:none!important;'>
             <!-- Tanda Tangan Pengawas-->
-            <img id="res-img-pw" src="{{ asset('storage/images/ttd_cr_pw/' . $Dtl->status) }}" alt="Waiting approval" style="width: 55%; height: 90%; margin: 7% 0% 0% 0%;">
+            <img id="res-img-pw" src="{{ asset('storage/images/ttd_mh_pw/' . $Dtl->status) }}" alt="Waiting approval" style="width: 55%; height: 90%; margin: 7% 0% 0% 0%;">
         </td>
 
         <td class=xl68></td>
