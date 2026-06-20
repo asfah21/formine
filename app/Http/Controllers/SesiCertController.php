@@ -48,6 +48,7 @@ class SesiCertController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'duration' => 'required|integer|min:1|max:72', // Pastikan ini angka
+            'site_mgr' => 'required|string|max:255',
         ]);
 
         $duration = (int) $request->duration; // Konversi ke integer
@@ -65,6 +66,8 @@ class SesiCertController extends Controller
             'durasi'=> $request->durasi,
             'mulai'=> $request->mulai,
             'berakhir' => $request->berakhir,
+
+            'site_mgr' => $request->site_mgr,
 
         ]);
 

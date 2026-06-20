@@ -859,11 +859,19 @@
                     <text class="cls-35" text-anchor="middle" transform="translate(417.57 422.41)"><tspan x="0" y="0">PT Gunung Samudera Internasional</tspan></text>
                     <image xlink:href="{{ asset('storage/images/stempel-gsi.svg') }}"  transform="translate(300 405)" height="123" width="123"/>
 
-                    <text class="cls-37" text-anchor="middle" transform="translate(417.57 498.19)"><tspan x="0" y="0">Rahim Tamburaka</tspan></text>
+                    <text class="cls-37" text-anchor="middle" transform="translate(417.57 498.19)"><tspan x="0" y="0">{{$certi->site_mgr ?? 'Rahim Tamburaka'}}</tspan></text>
                     <text class="cls-35" text-anchor="middle" transform="translate(417.57 512.39)"><tspan x="0" y="0">Site Manager</tspan></text>
 
                     <text class="cls-33" text-anchor="middle" transform="translate(417.57 66.83)"><tspan x="0" y="0"></tspan></text>
-                    <image xlink:href="{{ asset('storage/images/site-mgr.svg') }}" transform="translate(325 366)"  height="188" width="188"/>
+
+
+                    @if($certi->site_mgr == null)
+                        <image xlink:href="{{ asset('storage/images/site-mgr.svg') }}" transform="translate(325 366)"  height="188" width="188"/>
+                    @else
+                        <text class="cls-37" text-anchor="middle" transform="translate(361.5 466.5)">
+                            <tspan x="0" y="0"></tspan>
+                        </text>
+                    @endif
 
                 </svg>
             </div>

@@ -24,7 +24,8 @@ class SesiCert extends Model
         'unique_code',
         'duration',
         'start_time',
-        'end_time'
+        'end_time',
+        'site_mgr'
     ];
 
     // Setter untuk otomatis menghitung waktu berakhir sesi
