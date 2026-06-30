@@ -175,8 +175,12 @@ Route::get('/survey', function () {
     return view('survey');
 })->name('surveys.form');
 
+Route::get('/gsi-superapp', function () {
+    return view('gsi-superapp');
+})->name('gsi-superapp');
+
 Route::get('/form-manhaul', function () {
-    return view('form-manhaul');
+    return view('gsi-superapp');
 })->name('forms.form');
 
 Route::get('/home', function () {
@@ -209,21 +213,27 @@ Route::resource('attendance', AttendanceController::class);
 Route::post('/survey', [SurveyController::class, 'stored'])->name('surveys.store');
 
 //Manhaul Route
-Route::get('/form-manhaul', [ManhaulController::class, 'showForm'])->name('form-manhaul');
+Route::get('/form-manhaul', function () {
+    return view('gsi-superapp');
+})->name('form-manhaul');
 Route::post('/form-manhaul', [ManhaulController::class, 'store'])->name('form-manhaul');
 Route::post('/ttd-pengawas', [ManhaulController::class, 'ttdPW'])->name('ttd-pengawas');
 Route::get('/hasil-manhaul', [ManhaulController::class, 'hasilMH'])->name('hasil-manhaul');
 Route::get('/detail-mh/{name}/{aptnumx}', [ManhaulController::class, 'showx'])->name('detailMh.show');
 
 //DT Route
-Route::get('/form-dumptruck', [DumpTruckController::class, 'showForm'])->name('form-dumptruck');
+Route::get('/form-dumptruck', function () {
+    return view('gsi-superapp');
+})->name('form-dumptruck');
 Route::post('/form-dumptruck', [DumpTruckController::class, 'store'])->name('form-dumptruck');
 Route::post('/ttd-pengawas-dt', [DumpTruckController::class, 'ttdPW'])->name('ttd-pengawas-dt');
 Route::get('/hasil-dumptruck', [DumpTruckController::class, 'hasilDT'])->name('hasil-dumptruck');
 Route::get('/detail-dt/{name}/{aptnumx}', [DumpTruckController::class, 'showx'])->name('detailDt.show');
 
 //Exca Route
-Route::get('/form-exca', [ExcaController::class, 'showForm'])->name('form-exca');
+Route::get('/form-exca', function () {
+    return view('gsi-superapp');
+})->name('form-exca');
 Route::post('/form-exca', [ExcaController::class, 'store'])->name('form-exca');
 Route::post('/ttd-pengawas-exca', [ExcaController::class, 'ttdEX'])->name('ttd-pengawas-exca');
 Route::get('/hasil-exca', [ExcaController::class, 'hasilEX'])->name('hasil-exca');
@@ -232,21 +242,27 @@ Route::get('/detail-exca/{name}/{aptnumx}', [ExcaController::class, 'showx'])->n
 Route::get('/IniAdalahListNamaKaryawanPTGSIPer16Januari2025', [ExcaController::class, 'index']);
 
 //Compactor / Vibro Route
-Route::get('/form-cp', [CompactorController::class, 'showForm'])->name('form-cp');
+Route::get('/form-cp', function () {
+    return view('gsi-superapp');
+})->name('form-cp');
 Route::post('/form-cp', [CompactorController::class, 'store'])->name('form-cp');
 Route::post('/ttd-pengawas-cp', [CompactorController::class, 'ttdEX'])->name('ttd-pengawas-cp');
 Route::get('/hasil-cp', [CompactorController::class, 'hasilCp'])->name('hasil-cp');
 Route::get('/detail-cp/{name}/{aptnumx}', [CompactorController::class, 'showx'])->name('detailCp.show');
 
 //TL / Tower Lamp Route
-Route::get('/form-tl', [TowerlampController::class, 'showForm'])->name('form-tl');
+Route::get('/form-tl', function () {
+    return view('gsi-superapp');
+})->name('form-tl');
 Route::post('/form-tl', [TowerlampController::class, 'store'])->name('form-tl');
 Route::post('/ttd-pengawas-tl', [TowerlampController::class, 'ttdEX'])->name('ttd-pengawas-tl');
 Route::get('/hasil-tl', [TowerlampController::class, 'hasilTl'])->name('hasil-tl');
 Route::get('/detail-tl/{name}/{aptnumx}', [TowerlampController::class, 'showx'])->name('detailTl.show');
 
 // Compressor Route
-Route::get('/form-cr', [CompressorController::class, 'showForm'])->name('form-cr');
+Route::get('/form-cr', function () {
+    return view('gsi-superapp');
+})->name('form-cr');
 Route::post('/form-cr', [CompressorController::class, 'store'])->name('form-cr');
 Route::post('/ttd-pengawas-cr', [CompressorController::class, 'ttdEX'])->name('ttd-pengawas-cr');
 Route::get('/hasil-cr', [CompressorController::class, 'hasilCr'])->name('hasil-cr');
@@ -254,28 +270,36 @@ Route::get('/detail-cr/{name}/{aptnumx}', [CompressorController::class, 'showx']
 
 
 //Bulldozer Route
-Route::get('/form-bd', [BulldozerController::class, 'showForm'])->name('form-bd');
+Route::get('/form-bd', function () {
+    return view('gsi-superapp');
+})->name('form-bd');
 Route::post('/form-bd', [BulldozerController::class, 'store'])->name('form-bd');
 Route::post('/ttd-pengawas-bd', [BulldozerController::class, 'ttdBD'])->name('ttd-pengawas-bd');
 Route::get('/hasil-bd', [BulldozerController::class, 'hasilBd'])->name('hasil-bd');
 Route::get('/detail-bd/{name}/{aptnumx}', [BulldozerController::class, 'showx'])->name('detailBd.show');
 
 //Motor Grader Route
-Route::get('/form-mg', [GraderController::class, 'showForm'])->name('form-mg');
+Route::get('/form-mg', function () {
+    return view('gsi-superapp');
+})->name('form-mg');
 Route::post('/form-mg', [GraderController::class, 'store'])->name('form-mg');
 Route::post('/ttd-pengawas-mg', [GraderController::class, 'ttdBD'])->name('ttd-pengawas-mg');
 Route::get('/hasil-mg', [GraderController::class, 'hasilMg'])->name('hasil-mg');
 Route::get('/detail-mg/{name}/{aptnumx}', [GraderController::class, 'showx'])->name('detailMg.show');
 
 //Lv Route
-Route::get('/form-lv', [LvController::class, 'showForm'])->name('form-lv');
+Route::get('/form-lv', function () {
+    return view('gsi-superapp');
+})->name('form-lv');
 Route::post('/form-lv', [LvController::class, 'store'])->name('form-lv');
 Route::post('/ttd-pengawas-lv', [LvController::class, 'ttdBD'])->name('ttd-pengawas-lv');
 Route::get('/hasil-lv', [LvController::class, 'hasilLv'])->name('hasil-lv');
 Route::get('/detail-lv/{name}/{aptnumx}', [LvController::class, 'showx'])->name('detailLv.show');
 
 //Adt Route
-Route::get('/form-adt', [AdtController::class, 'showForm'])->name('form-adt');
+Route::get('/form-adt', function () {
+    return view('gsi-superapp');
+})->name('form-adt');
 Route::post('/form-adt', [AdtController::class, 'store'])->name('form-adt');
 Route::post('/ttd-pengawas-adt', [AdtController::class, 'ttdBD'])->name('ttd-pengawas-adt');
 Route::get('/hasil-adt', [AdtController::class, 'hasilAdt'])->name('hasil-adt');
