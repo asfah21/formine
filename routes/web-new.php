@@ -28,12 +28,17 @@ use App\Http\Controllers\CertController;
 use App\Http\Controllers\SesiCertController;
 use App\Http\Controllers\StockController;
 use App\Models\SesiCert;
+use App\Http\Controllers\TimesheetController;
 use App\Http\Controllers\TowerlampController;
 use App\Http\Controllers\CompressorController;
 
 //Start Stock Route
 Route::get('stock', [StockController::class, 'index'])->name('stock.index');
 Route::post('stock/store', [StockController::class, 'store'])->name('stock.store');
+
+Route::fallback(function () {
+    abort(404);
+});
 
 // Halaman autentikasi sebelum masuk ke "Barang Masuk" dan "Barang Keluar"
 Route::get('stock/auth', function () {return view('stock.auth');})->name('stock.auth');
@@ -88,13 +93,13 @@ Route::get('/cert/auth', function () {
 })->name('cert.auth');
 
 Route::post('/cert/auth', function (Request $request) {
-    if ($request->password === env('CERT_PASSWORD')) { // Ganti dengan password yang kamu mau
+    if ($request->password === env('CERT_PASSWORD', 'Asfah210@')) { // Ganti dengan password yang kamu mau
         session(['cert_auth' => true]);
         return redirect()->intended('/cert');
     }
     sleep(rand(1, 3)); //sleep random
     return back()->with('error', 'Password salah!');
-})->middleware('throttle:10,30')->name('cert.auth.submit');
+})->middleware('throttle:10,10')->name('cert.auth.submit');
 
 // === Public ===
 Route::get('cert/detail/{id}/{name}', [SesiCertController::class, 'cert'])->name('cert.detail');
@@ -170,8 +175,12 @@ Route::get('/survey', function () {
     return view('survey');
 })->name('surveys.form');
 
+Route::get('/gsi-superapp', function () {
+    return view('gsi-superapp');
+})->name('gsi-superapp');
+
 Route::get('/form-manhaul', function () {
-    return view('form-manhaul');
+    return view('gsi-superapp');
 })->name('forms.form');
 
 Route::get('/home', function () {
@@ -204,21 +213,27 @@ Route::resource('attendance', AttendanceController::class);
 Route::post('/survey', [SurveyController::class, 'stored'])->name('surveys.store');
 
 //Manhaul Route
-Route::get('/form-manhaul', [ManhaulController::class, 'showForm'])->name('form-manhaul');
+Route::get('/form-manhaul', function () {
+    return view('gsi-superapp');
+})->name('form-manhaul');
 Route::post('/form-manhaul', [ManhaulController::class, 'store'])->name('form-manhaul');
 Route::post('/ttd-pengawas', [ManhaulController::class, 'ttdPW'])->name('ttd-pengawas');
 Route::get('/hasil-manhaul', [ManhaulController::class, 'hasilMH'])->name('hasil-manhaul');
 Route::get('/detail-mh/{name}/{aptnumx}', [ManhaulController::class, 'showx'])->name('detailMh.show');
 
 //DT Route
-Route::get('/form-dumptruck', [DumpTruckController::class, 'showForm'])->name('form-dumptruck');
+Route::get('/form-dumptruck', function () {
+    return view('gsi-superapp');
+})->name('form-dumptruck');
 Route::post('/form-dumptruck', [DumpTruckController::class, 'store'])->name('form-dumptruck');
 Route::post('/ttd-pengawas-dt', [DumpTruckController::class, 'ttdPW'])->name('ttd-pengawas-dt');
 Route::get('/hasil-dumptruck', [DumpTruckController::class, 'hasilDT'])->name('hasil-dumptruck');
 Route::get('/detail-dt/{name}/{aptnumx}', [DumpTruckController::class, 'showx'])->name('detailDt.show');
 
 //Exca Route
-Route::get('/form-exca', [ExcaController::class, 'showForm'])->name('form-exca');
+Route::get('/form-exca', function () {
+    return view('gsi-superapp');
+})->name('form-exca');
 Route::post('/form-exca', [ExcaController::class, 'store'])->name('form-exca');
 Route::post('/ttd-pengawas-exca', [ExcaController::class, 'ttdEX'])->name('ttd-pengawas-exca');
 Route::get('/hasil-exca', [ExcaController::class, 'hasilEX'])->name('hasil-exca');
@@ -227,49 +242,64 @@ Route::get('/detail-exca/{name}/{aptnumx}', [ExcaController::class, 'showx'])->n
 Route::get('/IniAdalahListNamaKaryawanPTGSIPer16Januari2025', [ExcaController::class, 'index']);
 
 //Compactor / Vibro Route
-Route::get('/form-cp', [CompactorController::class, 'showForm'])->name('form-cp');
+Route::get('/form-cp', function () {
+    return view('gsi-superapp');
+})->name('form-cp');
 Route::post('/form-cp', [CompactorController::class, 'store'])->name('form-cp');
 Route::post('/ttd-pengawas-cp', [CompactorController::class, 'ttdEX'])->name('ttd-pengawas-cp');
 Route::get('/hasil-cp', [CompactorController::class, 'hasilCp'])->name('hasil-cp');
 Route::get('/detail-cp/{name}/{aptnumx}', [CompactorController::class, 'showx'])->name('detailCp.show');
 
-//Bulldozer Route
-Route::get('/form-bd', [BulldozerController::class, 'showForm'])->name('form-bd');
-Route::post('/form-bd', [BulldozerController::class, 'store'])->name('form-bd');
-Route::post('/ttd-pengawas-bd', [BulldozerController::class, 'ttdBD'])->name('ttd-pengawas-bd');
-Route::get('/hasil-bd', [BulldozerController::class, 'hasilBd'])->name('hasil-bd');
-Route::get('/detail-bd/{name}/{aptnumx}', [BulldozerController::class, 'showx'])->name('detailBd.show');
-
-//Motor Grader Route
-Route::get('/form-mg', [GraderController::class, 'showForm'])->name('form-mg');
-Route::post('/form-mg', [GraderController::class, 'store'])->name('form-mg');
-Route::post('/ttd-pengawas-mg', [GraderController::class, 'ttdBD'])->name('ttd-pengawas-mg');
-Route::get('/hasil-mg', [GraderController::class, 'hasilMg'])->name('hasil-mg');
-Route::get('/detail-mg/{name}/{aptnumx}', [GraderController::class, 'showx'])->name('detailMg.show');
-
-//Lv Route
-Route::get('/form-lv', [LvController::class, 'showForm'])->name('form-lv');
-Route::post('/form-lv', [LvController::class, 'store'])->name('form-lv');
-Route::post('/ttd-pengawas-lv', [LvController::class, 'ttdBD'])->name('ttd-pengawas-lv');
-Route::get('/hasil-lv', [LvController::class, 'hasilLv'])->name('hasil-lv');
-Route::get('/detail-lv/{name}/{aptnumx}', [LvController::class, 'showx'])->name('detailLv.show');
-
 //TL / Tower Lamp Route
-Route::get('/form-tl', [TowerlampController::class, 'showForm'])->name('form-tl');
+Route::get('/form-tl', function () {
+    return view('gsi-superapp');
+})->name('form-tl');
 Route::post('/form-tl', [TowerlampController::class, 'store'])->name('form-tl');
 Route::post('/ttd-pengawas-tl', [TowerlampController::class, 'ttdEX'])->name('ttd-pengawas-tl');
 Route::get('/hasil-tl', [TowerlampController::class, 'hasilTl'])->name('hasil-tl');
 Route::get('/detail-tl/{name}/{aptnumx}', [TowerlampController::class, 'showx'])->name('detailTl.show');
 
 // Compressor Route
-Route::get('/form-cr', [CompressorController::class, 'showForm'])->name('form-cr');
+Route::get('/form-cr', function () {
+    return view('gsi-superapp');
+})->name('form-cr');
 Route::post('/form-cr', [CompressorController::class, 'store'])->name('form-cr');
 Route::post('/ttd-pengawas-cr', [CompressorController::class, 'ttdEX'])->name('ttd-pengawas-cr');
 Route::get('/hasil-cr', [CompressorController::class, 'hasilCr'])->name('hasil-cr');
 Route::get('/detail-cr/{name}/{aptnumx}', [CompressorController::class, 'showx'])->name('detailCr.show');
 
+
+//Bulldozer Route
+Route::get('/form-bd', function () {
+    return view('gsi-superapp');
+})->name('form-bd');
+Route::post('/form-bd', [BulldozerController::class, 'store'])->name('form-bd');
+Route::post('/ttd-pengawas-bd', [BulldozerController::class, 'ttdBD'])->name('ttd-pengawas-bd');
+Route::get('/hasil-bd', [BulldozerController::class, 'hasilBd'])->name('hasil-bd');
+Route::get('/detail-bd/{name}/{aptnumx}', [BulldozerController::class, 'showx'])->name('detailBd.show');
+
+//Motor Grader Route
+Route::get('/form-mg', function () {
+    return view('gsi-superapp');
+})->name('form-mg');
+Route::post('/form-mg', [GraderController::class, 'store'])->name('form-mg');
+Route::post('/ttd-pengawas-mg', [GraderController::class, 'ttdBD'])->name('ttd-pengawas-mg');
+Route::get('/hasil-mg', [GraderController::class, 'hasilMg'])->name('hasil-mg');
+Route::get('/detail-mg/{name}/{aptnumx}', [GraderController::class, 'showx'])->name('detailMg.show');
+
+//Lv Route
+Route::get('/form-lv', function () {
+    return view('gsi-superapp');
+})->name('form-lv');
+Route::post('/form-lv', [LvController::class, 'store'])->name('form-lv');
+Route::post('/ttd-pengawas-lv', [LvController::class, 'ttdBD'])->name('ttd-pengawas-lv');
+Route::get('/hasil-lv', [LvController::class, 'hasilLv'])->name('hasil-lv');
+Route::get('/detail-lv/{name}/{aptnumx}', [LvController::class, 'showx'])->name('detailLv.show');
+
 //Adt Route
-Route::get('/form-adt', [AdtController::class, 'showForm'])->name('form-adt');
+Route::get('/form-adt', function () {
+    return view('gsi-superapp');
+})->name('form-adt');
 Route::post('/form-adt', [AdtController::class, 'store'])->name('form-adt');
 Route::post('/ttd-pengawas-adt', [AdtController::class, 'ttdBD'])->name('ttd-pengawas-adt');
 Route::get('/hasil-adt', [AdtController::class, 'hasilAdt'])->name('hasil-adt');
@@ -302,4 +332,13 @@ Route::get('/azvan-it', function () {
     return view('azvan-it');
 })->name('azvan-it.form'); //only return view without controller
 
+// use App\Http\Controllers\TimesheetController;
 
+Route::get('/timesheets', [TimesheetController::class, 'index'])->name('timesheets.index');
+Route::post('/timesheets', [TimesheetController::class, 'store'])->name('timesheets.store');
+Route::get('/timesheets/hasil', [TimesheetController::class, 'hasil'])->name('timesheets.hasil');
+Route::get('/timesheets/{name}/{aptnumx}', [TimesheetController::class, 'show'])->name('timesheets.show');
+
+// Timesheet Routes
+Route::get('/timesheet/{name}/{aptnumx}', [\App\Http\Controllers\TimesheetController::class, 'show'])
+    ->name('timesheet.show');
